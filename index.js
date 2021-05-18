@@ -15,7 +15,7 @@ function convertFahrToCelsius(num) {
   let check = JSON.stringify(num);
   if (Array.isArray(num)) {
     return `${check} is not a valid number but a/an array`;
-  } else if (num === " ") {
+  } else if (num === " " || isNaN(num)) {
     return `${check} is not a valid number but a/an ${typeof num}`;
   } else if (num === "") {
     return `${check} is not a valid number but a/an ${typeof num}`;
@@ -27,6 +27,7 @@ function convertFahrToCelsius(num) {
 
 console.log(convertFahrToCelsius(0));
 console.log(convertFahrToCelsius("0"));
+console.log(convertFahrToCelsius("work"));
 console.log(convertFahrToCelsius([1, 2, 3]));
 console.log(convertFahrToCelsius({ temp: 0 }));
 
